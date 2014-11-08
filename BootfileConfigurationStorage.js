@@ -1,15 +1,13 @@
 'use strict';
 
-var util                           = require('util');
-var ConfigurationStorageInterface  = require('spid-storage-configuration-interface');
-var JsonFileConfigurationStorage   = require('spid-storage-configuration-jsonfile');
-var _                              = require('lodash');
-var ensure                         = require('file-ensure');
-
-var ENV_PREFIX                     = 'SPID_';
+var util = require('util');
+var ConfigurationStorageInterface = require('spid-storage-configuration-interface');
+var JsonFileConfigurationStorage = require('spid-storage-configuration-jsonfile');
+var _ = require('lodash');
+var ensure = require('file-ensure');
 
 function BootfileConfigurationStorage(defaultConfigurationBootfile) {
-  if(!defaultConfigurationBootfile){
+  if (!defaultConfigurationBootfile) {
     // @todo use SpidException instead
     throw new Error(BootfileConfigurationStorage.name + '(defaultConfigurationBootfile), `defaultConfigurationBootfile` is required');
   }
@@ -36,7 +34,7 @@ BootfileConfigurationStorage.prototype.init = function (configuration, f) {
 };
 
 // Helpers
-BootfileConfigurationStorage.prototype._ensureConfigFileExists = function(){
+BootfileConfigurationStorage.prototype._ensureConfigFileExists = function () {
   // Ensure that the file exist, create it otherwise
   ensure(this._jsonfilename);
 };
